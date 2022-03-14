@@ -1,0 +1,116 @@
+{
+"language" : "English",
+"@language":{
+"description": "The current Language"
+},
+"login": "LOGIN",
+"@login":{
+    "description": "The login"
+},
+"email": "Email",
+"@email":{
+        "description": "The Email"
+},
+"password": "Password",
+"@password":{
+        "description": "The password"
+    },
+"forgetPassword": "Forget Password?",
+"@Forget Password":{
+"description": "The Forget Password"
+},
+
+"dontHaveAnAccount": "Don't have an account?",
+"@Don't have an account?":{
+        "description": "DontHaveAnAccount?"
+    },
+
+"register": "Register",
+"@Register":{
+"description": "Register"
+},
+
+"emailCantbeEmpty": "Email can't be empty",
+"@emailCantbeEmpty":{
+"description": "emailCantbeEmpty"
+},
+"enterAValidEMail": "Enter a valid Email..",
+"@enterAValidEMail":{
+    "description": "enterAValidEMail"
+},
+
+
+"passwordCantbeEmpty": "Password can't be empty",
+"@passwordCantbeEmpty":{
+"description": "passwordCantbeEmpty"
+},
+"passwordmustbemorethan": "Password must be more than 6 letters",
+"@passwordmustbemorethan":{
+"description": "passwordmustbemorethan"
+},
+
+"alreadyhaveAccount": "Already have an account?",
+"@alreadyhaveAccount":{
+"description": "alreadyhaveAccount"
+},
+
+
+"signUp": "SignUp",
+"@signUp":{
+"description": "signUp"
+},
+"phone": "Phone",
+"@phone":{
+"description": "phone"
+},
+"age": "Age",
+"@age":{
+"description": "age"
+},
+"name": "name",
+"@name":{
+"description": "name"
+},
+"nameCantbeEmpty": "Name can't be empty",
+"@name":{
+"nameCantbeEmpty": "Name can't be empty"
+},
+"ageCantbeEmpty": "Age can't be empty",
+"@ageCantbeEmpty":{
+"ageCantbeEmpty": "Age can't be empty"
+},
+"phoneCantbeEmpty": "Phone can't be empty",
+"@phoneCantbeEmpty":{
+"phoneCantbeEmpty": "Phone can't be empty"
+},
+"enterVaildPhone": "Enter a valid Phone Number",
+"@enterVaildPhone":{
+"enterVaildPhone": "Enter a valid Phone Number"
+},
+"recentAppointments":"Recent appointments",
+"@recentAppointments":{
+"recentAppointments": "recentAppointments"
+},
+"medicalAppointment":"Medical appointment",
+"@medicalAppointment":{
+"medicalAppointment": "medicalAppointment"
+},
+"medicalProfile":"Medical Profile",
+"@medicalProfile":{
+"medicalProfile": "medicalProfile"
+},
+"theEmailnotFound":"The email not found",
+"@theEmailnotFound":{
+"theEmailnotFound": "theEmailnotFound"
+},
+"theEmailnotValid":"The email is not valid",
+"@theEmailnotValid":{
+"theEmailnotValid": "theEmailnotValid"
+},
+"passwordIsWrong":"Password is wrong",
+"@passwordIsWrong":{
+"passwordIsWrong": "passwordIsWrong"
+}
+
+
+}

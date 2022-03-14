@@ -1,0 +1,30 @@
+{
+   "language" : "العربية",
+   "login": "تسجيل دخول",
+   "email": "الحساب",
+   "password": "كلمة السر",
+   "forgetPassword": "نسيت كلمة السر؟",
+   "dontHaveAnAccount": "ليس لديك حساب؟",
+   "register": "إنشاء حساب",
+   "emailCantbeEmpty": "الحساب فارغ! ",
+   "enterAValidEMail": "إدخل حساب صحيح",
+   "passwordCantbeEmpty": "كلمة السر فارغة!",
+   "passwordmustbemorethan": "كلمة السر يجب ان تكون اكثر من 6 ",
+   "alreadyhaveAccount": "بافعل لديك حساب؟",
+   "signUp": "إنشاء حساب",
+   "phone": "رقم الهاتف",
+   "age": "السن",
+   "name": "الأسم",
+   "nameCantbeEmpty": "الأسم فارغ!",
+   "ageCantbeEmpty": "السن فارغ!",
+   "phoneCantbeEmpty": "رقم الهاتف فارغ!",
+   "enterVaildPhone": "إدخل رقم هاتف صحيح",
+   "recentAppointments":"الحجوزات الحالية",
+   "medicalAppointment": "حجز ميعاد",
+   "medicalProfile": "ملفك الطبي",
+   "theEmailnotFound": "الحساب غير موجود",
+   "theEmailnotValid": "الحساب غير صحيح",
+   "passwordIsWrong": "كلمة السر غير صحيح"
+
+
+}
