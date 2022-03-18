@@ -34,6 +34,26 @@ class GetUserErrorState extends States {}
 
 class GetUserLoadingState extends States {}
 
+class GetAllUsersSuccessState extends States {}
+
+class GetAllUsersErrorState extends States {}
+
+class GetAllUsersLoadingState extends States {}
+
+class GetPostsSuccessState extends States {}
+
+class GetPostsErrorState extends States {}
+
+class GetPostsLoadingState extends States {}
+
+class LikePostsSuccessState extends States {}
+
+class LikePostsErrorState extends States {}
+
+class CommentPostsSuccessState extends States {}
+
+class CommentPostsErrorState extends States {}
+
 class NewPostButtonNavState extends States{}
 
 class ProfileImagePickedSuccessState extends States {}
@@ -69,4 +89,10 @@ class PostImagePickedSuccessState extends States {}
 class PostImagePickedErrorState extends States {}
 
 class RemovePostImageState extends States {}
+
+class SendMessagesSuccessState extends States {}
+
+class SendMessagesErrorState extends States {}
+
+class GetMessagesSuccessState extends States {}
 

@@ -42,14 +42,14 @@ class NewPostScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 25.0,
                       backgroundImage: NetworkImage(
-                          "https://th.bing.com/th/id/OIP.kvETIYCTWn66gr-Hcbv-OgHaHa?pid=ImgDet&rs=1"),
+                          "${AppCubit.get(context).model!.image}"),
                     ),
                     SizedBox(
                       width: 20.0,
                     ),
                     Expanded(
                       child:  Text(
-                        "Maria Tharwat",
+                        "${AppCubit.get(context).model!.name}",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold),

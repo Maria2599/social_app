@@ -49,7 +49,7 @@ class SettingsScreen extends StatelessWidget {
                       child: CircleAvatar(
                         radius: 60.0,
                         backgroundImage: NetworkImage(
-                           "${userModel.image}" ),
+                           "${userModel!.image}" ),
                       ),
                     ),
                   ],
@@ -59,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                 height: 5.0,
               ),
               Text(
-                "${userModel.name}",
+                "${userModel!.name}",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
               ),
               Text(

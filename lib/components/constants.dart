@@ -20,4 +20,4 @@ String phoneConst="";
 
 String num="";
 
-var uId='';
+var uId;

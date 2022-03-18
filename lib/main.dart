@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (BuildContext context) => LoginCubit()),
           BlocProvider(create: (BuildContext context) => RegisterCubit()),
-          BlocProvider(create: (BuildContext context) => AppCubit()..getUsers()),
+          BlocProvider(create: (BuildContext context) => AppCubit()..getUsers()..getPosts()),
 
         ],
         child: MaterialApp(

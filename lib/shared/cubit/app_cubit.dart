@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social_app/models/messageModel.dart';
 import 'package:social_app/models/postModel.dart';
 import 'package:social_app/models/userModel.dart';
 import 'package:social_app/modules/chats/chats_screen.dart';
@@ -47,6 +48,8 @@ class AppCubit extends Cubit<States> {
   }
 
   void changeButtonNav(int index) {
+    if(index ==1)
+      getAllUsers();
     if (index == 2) {
       emit(NewPostButtonNavState());
     } else {
@@ -239,6 +242,151 @@ class AppCubit extends Cubit<States> {
     })
         .catchError((error) {
       emit(CreatePostErrorState());
+    });
+  }
+
+  List<PostModel> posts=[];
+  List<String> postsId=[];
+  List<int> likes=[];
+
+  void getPosts(){
+    FirebaseFirestore.instance
+        .collection('posts')
+        .get()
+        .then((value) {
+          //element hwa mo7tawa l doc l wa7da
+          value.docs.forEach((element) {
+            element.reference
+            .collection('likes')
+            .get()
+            .then((value) {
+              likes.add(value.docs.length);
+              postsId.add(element.id);
+              posts.add(PostModel.fromJson(element.data()));
+            })
+            .catchError((error){});
+
+          });
+          emit(GetPostsSuccessState());
+    })
+        .catchError((error){
+          emit(GetPostsErrorState());
+    });
+  }
+
+  void likePost(String postId){
+    FirebaseFirestore.instance
+        .collection('posts')
+        .doc(postId)
+        .collection('likes')
+        .doc(model!.uId)
+        .set({
+      'like': true,
+    })
+        .then((value) {
+          emit(LikePostsSuccessState());
+    })
+        .catchError((error){
+          emit(LikePostsErrorState());
+    });
+  }
+
+  void commentPost(String postId, String commentText){
+    FirebaseFirestore.instance
+        .collection('posts')
+        .doc(postId)
+        .collection('comments')
+        .doc(model!.uId)
+        .set({
+      'comment': commentText,
+    }).then((value) {
+      emit(CommentPostsSuccessState());
+    })
+        .catchError((error){
+          emit(CommentPostsErrorState());
+    });
+  }
+
+  List<UserModel> users=[];
+  void getAllUsers() {
+    emit(GetAllUsersLoadingState());
+    if(users.length == 0)
+      FirebaseFirestore.instance.collection('users').get()
+        .then((value) {
+      value.docs.forEach((element) {
+        if(element.data()['uId'] != model!.uId)
+          users.add(UserModel.fromJson(element.data()));
+      });
+      emit(GetAllUsersSuccessState());
+    }).catchError((error) {
+      emit(GetAllUsersErrorState());
+    });
+  }
+
+
+  void sendMessages({
+  required String receiverId,
+  required String dateTime,
+  required String text,
+}){
+
+    MessageModel messageModel = MessageModel(
+      senderId: model!.uId,
+      receiverId: receiverId,
+      dateTime: dateTime,
+      text: text,
+    );
+
+    //set my chats
+    FirebaseFirestore.instance
+    .collection('users')
+    .doc(model!.uId)
+    .collection('chat')
+    .doc(receiverId)
+    .collection('messages')
+    .add(messageModel.toMap())
+    .then((value) {
+      emit(SendMessagesSuccessState());
+    })
+    .catchError((error){
+      emit(SendMessagesErrorState());
+    });
+
+    //set receiver chats
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(receiverId)
+        .collection('chat')
+        .doc(model!.uId)
+        .collection('messages')
+        .add(messageModel.toMap())
+        .then((value) {
+      emit(SendMessagesSuccessState());
+    })
+        .catchError((error){
+      emit(SendMessagesErrorState());
+    });
+  }
+
+  List<MessageModel> messages=[];
+
+  void getMessages({
+    required String receiverId,
+}){
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(model!.uId)
+        .collection('chat')
+        .doc(receiverId)
+        .collection('messages')
+    .orderBy('dateTime')
+        .snapshots()
+        .listen((event) {
+          messages=[];
+          event.docs.forEach((element) {
+            messages.add(MessageModel.fromJson(element.data()));
+          });
+          emit(GetMessagesSuccessState());
     });
   }
 }
